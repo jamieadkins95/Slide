@@ -5,7 +5,7 @@ width="200"
     hspace="10" vspace="10">
 
 Slide is an open source, ad free Reddit browser for Android. It is based around
-the [Java Reddit API Wrapper](https://github.com/thatJavaNerd/JRAW).
+the [Java Reddit API Wrapper](https://github.com/thatJavaNerd/JRAW). This particular version of Slide has been modified to log every Reddit request made. This is a part of a 3rd year Computer Science project at the University of York
 
 Slide is available on the Google Play Store and F-Droid.  
 <a href="https://play.google.com/store/apps/details?id=me.ccrama.redditslide">
