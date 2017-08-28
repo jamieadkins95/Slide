@@ -300,6 +300,7 @@ public class CommentCacheAsync extends AsyncTask {
         ArrayList<String> error = new ArrayList<>();
 
         for (final String fSub : subs) {
+            Log.d("JAMIEA", fSub);
             final String sub;
             final String name = fSub;
             CommentSort sortType = SettingValues.getCommentSorting(name);

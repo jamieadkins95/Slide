@@ -16,10 +16,14 @@ import me.ccrama.redditslide.Reddit;
 
 public class AutoCacheScheduler {
     private final PendingIntent pendingIntent;
+    private final PendingIntent preditiveIntent;
 
     public AutoCacheScheduler(Context context) {
         Intent alarmIntent = new Intent(context, CacheAll.class);
         pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
+
+        Intent pcsxIntent = new Intent(context, PcsxCache.class);
+        preditiveIntent = PendingIntent.getBroadcast(context, 0, pcsxIntent, 0);
         start(context);
     }
 
@@ -35,6 +39,12 @@ public class AutoCacheScheduler {
         }
         manager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
                 AlarmManager.INTERVAL_DAY, pendingIntent);
+
+        // At midnight.
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, preditiveIntent);
     }
 
     public void cancel(Context c) {
